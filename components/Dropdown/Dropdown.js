@@ -5,25 +5,28 @@ class Dropdown {
     this.element = element;
     // console.log(element)
     
-    // Get the element with the ".dropdown-button" class found in the dropdown element (look at the HTML for context)
-    this.button = this.element.querySelector();
+    // assign button to the drop down button in the html. 
+    this.button = this.element.querySelector('.dropdown-button');
+    // console.log(this.button)
     
-    // assign the reference to the ".dropdown-content" class found in the dropdown element
-    this.content;
+    // Assign content to the hidden drop down context. 
+    this.content = document.querySelector('.dropdown-content');
+    // console.log(this.content)
     
-    // Add a click handler to the button reference and call the toggleContent method.
-    this.button.addEventListener('click', () => {
+    // Add event listener to the visible button. Two ways! 
+    this.button.addEventListener('click', () => this.toggleContent());
+    // this.button.addEventListener('click', function(){
+    //   this.toggleContent();
+    // });
 
-    })
+    // this.button.addEventListener('click', this.toggleContent.bind(this))
   }
 
   toggleContent() {
-    
-    // Toggle the ".dropdown-hidden" class off and on
-    this.content;
+    // Toggle the .dropdown-hidden class on the dropdown content. 
+    this.content.classList.toggle('dropdown-hidden');
   }
 }
 
-
-// Nothing to do here, just study what the code is doing and move on to the Dropdown class
+// grabs the dropdown menu with the dropdown class and creates a new Dropdown object. 
 let dropdowns = document.querySelectorAll('.dropdown').forEach( dropdown => new Dropdown(dropdown));
